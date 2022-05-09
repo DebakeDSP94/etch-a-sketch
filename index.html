@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+			integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<script src="script.js" defer></script>
+		<title>Etch-a-sketch</title>
+	</head>
+	<body>
+		<div class="title-container" id="title-container">
+			<h1 id="app-title">Etch-a-Sketch</h1>
+		</div>
+		<div class="container">
+			<div class="control-menu" id="control-menu">
+				<div class="color-picker">
+					<span>Color Palette</span>
+					<input
+						type="color"
+						id="color-palette"
+						class="color-palette"
+						value="#101010"
+					/>
+				</div>
+				<div class="rainbow-switch" id="rainbow-switch">
+					<p>Rainbow Mode</p>
+					<label class="switch rainbow" id="rainbow">
+						<input type="checkbox" />
+						<span class="slider round"></span>
+					</label>
+				</div>
+				<button class="eraser" id="eraser">Erase</button>
+				<button class="clear" id="clear">Clear</button>
+				<p class="grid-size-text" id="grid-size-text">Grid Size: 16x16</p>
+				<input
+					type="range"
+					class="grid-size"
+					id="grid-size"
+					value="16"
+					min="10"
+					max="100"
+				/>
+			</div>
+			<div class="canvas" id="canvas"></div>
+		</div>
+	</body>
+</html>
