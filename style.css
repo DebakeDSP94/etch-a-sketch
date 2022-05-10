@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@400;700&family=Water+Brush&display=swap');
 
 * {
 	box-sizing: border-box;
@@ -13,9 +13,11 @@ body {
 }
 
 .title-container {
+	font-family: 'Lobster';
 	display: flex;
 	justify-content: center;
 	color: aliceblue;
+	font-size: 30px;
 }
 
 .container {
@@ -30,7 +32,11 @@ body {
 	align-items: left;
 	justify-content: space-around;
 	height: 500px;
-	width: 200px;
+	width: 240px;
+	border: 10px solid rgb(7, 15, 87);
+	padding: 20px;
+	border-radius: 20px;
+	box-shadow: 2px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .color-picker {
@@ -47,11 +53,26 @@ body {
 	border-radius: 10%;
 }
 
-.rainbow-switch {
+.rainbow-switch,
+.eraser-switch {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	color: aliceblue;
+}
+
+.clear-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.clear {
+	background-color: rgb(7, 15, 87);
+	color: aliceblue;
+	width: 100px;
+	height: 30px;
+	border-radius: 10px;
 }
 
 .canvas {
@@ -62,6 +83,7 @@ body {
 	height: 640px;
 	border-radius: 20px;
 	border: 20px solid rgb(7, 15, 87);
+	box-shadow: 2px 10px 5px rgba(0, 0, 0, 0.3);
 }
 
 .grid-size-text {

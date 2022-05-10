@@ -1,11 +1,17 @@
 const penColor = document.getElementById('color-palette');
-const rainbowToggle = document.getElementById('rainbox');
+const rainbowToggle = document.getElementById('rainbow');
 const clearBtn = document.getElementById('clear');
-const eraserBtn = document.getElementById('eraser');
+const eraserToggle = document.getElementById('eraser');
 const gridSize = document.getElementById('grid-size');
 const gridSizeTextEl = document.getElementById('grid-size-text');
 const canvas = document.getElementById('canvas');
+
+const hexValues = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+
 let gridSizeNum = 16;
+let rainbow = false;
+let eraser = false;
+let color = '#000000';
 
 createGrid(gridSizeNum);
 
@@ -18,11 +24,29 @@ gridSize.addEventListener('input', (e) => {
 
 clearBtn.addEventListener('click', newGrid);
 
-/* eraserBtn.addEventListener('click', eraserMode)
+rainbowToggle.addEventListener('change', (e) => rainbowMode(e.target));
 
-function eraserMode() {
+function rainbowMode(rainbowBtn) {
+	console.log(rainbowBtn.checked);
+	if (rainbowBtn.checked) {
+		rainbow = true;
+		eraserToggle.target.checked = false;
+	} else {
+		rainbow = false;
+	}
+}
 
-} */
+eraserToggle.addEventListener('change', (e) => eraserMode(e.target));
+
+function eraserMode(eraserBtn) {
+	console.log(eraserBtn.checked);
+	if (eraserBtn.checked) {
+		eraser = true;
+		rainbowToggle.target.checked = false;
+	} else {
+		eraser = false;
+	}
+}
 
 function newGrid() {
 	clearGrid(canvas);
@@ -46,8 +70,25 @@ function createGrid(gridSizeNum) {
 }
 
 function setColor(element) {
-	let color = penColor.value;
+	if (!eraser && !rainbow) {
+		color = penColor.value;
+	} else if (rainbow && !eraser) {
+		color = randomColor();
+	} else if (eraser && !rainbow) {
+		color = '#ffffff';
+	}
 	element.target.style.background = `${color}`;
+}
+
+function randomColor() {
+	let hex = '#';
+
+	for (let i = 0; i < 6; i++) {
+		let index = Math.floor(Math.random() * hexValues.length);
+		hex += hexValues[index];
+	}
+
+	return hex;
 }
 
 function clearGrid(parent) {
