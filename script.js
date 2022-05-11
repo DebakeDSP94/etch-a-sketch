@@ -41,30 +41,9 @@ function adjustButtonStates(theClickedOne) {
 			rainbowToggle.checked = false;
 		}
 	}
-}
-
-rainbowToggle.addEventListener('change', (e) => rainbowMode(e.target));
-
-function rainbowMode(rainbowBtn) {
-	console.log(rainbowBtn.checked, '4');
-	if (rainbowBtn.checked) {
-		rainbow = true;
-	} else {
-		rainbow = false;
-	}
-	//	adjustButtonStates();
-}
-
-eraserToggle.addEventListener('change', (e) => eraserMode(e.target));
-
-function eraserMode(eraserBtn) {
-	console.log(eraserBtn.checked, '5');
-	if (eraserBtn.checked) {
-		eraser = true;
-	} else {
-		eraser = false;
-	}
-	//	adjustButtonStates();
+	rainbow = rainbowToggle.checked;
+	eraser = eraserToggle.checked;
+	return rainbow, eraser;
 }
 
 function newGrid() {
