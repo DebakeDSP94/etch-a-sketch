@@ -30,9 +30,6 @@ Toggles.forEach((toggle) =>
 );
 
 function adjustButtonStates(theClickedOne) {
-	console.log(eraserToggle.checked, '1');
-	console.log(rainbowToggle.checked, '2');
-	console.log(theClickedOne.checked, '3');
 	if (eraserToggle.checked && rainbowToggle.checked) {
 		if (rainbowToggle === theClickedOne) {
 			eraserToggle.checked = false;
