@@ -1,3 +1,4 @@
+const Toggles = document.querySelectorAll('.toggle');
 const penColor = document.getElementById('color-palette');
 const rainbowToggle = document.getElementById('rainbow');
 const clearBtn = document.getElementById('clear');
@@ -24,28 +25,46 @@ gridSize.addEventListener('input', (e) => {
 
 clearBtn.addEventListener('click', newGrid);
 
+Toggles.forEach((toggle) =>
+	toggle.addEventListener('change', (e) => adjustButtonStates(e.target))
+);
+
+function adjustButtonStates(theClickedOne) {
+	console.log(eraserToggle.checked, '1');
+	console.log(rainbowToggle.checked, '2');
+	console.log(theClickedOne.checked, '3');
+	if (eraserToggle.checked && rainbowToggle.checked) {
+		if (rainbowToggle === theClickedOne) {
+			eraserToggle.checked = false;
+		}
+		if (eraserToggle === theClickedOne) {
+			rainbowToggle.checked = false;
+		}
+	}
+}
+
 rainbowToggle.addEventListener('change', (e) => rainbowMode(e.target));
 
 function rainbowMode(rainbowBtn) {
-	console.log(rainbowBtn.checked);
+	console.log(rainbowBtn.checked, '4');
 	if (rainbowBtn.checked) {
 		rainbow = true;
-		eraserToggle.target.checked = false;
 	} else {
 		rainbow = false;
 	}
+	//	adjustButtonStates();
 }
 
 eraserToggle.addEventListener('change', (e) => eraserMode(e.target));
 
 function eraserMode(eraserBtn) {
-	console.log(eraserBtn.checked);
+	console.log(eraserBtn.checked, '5');
 	if (eraserBtn.checked) {
 		eraser = true;
-		rainbowToggle.target.checked = false;
 	} else {
 		eraser = false;
 	}
+	//	adjustButtonStates();
 }
 
 function newGrid() {
